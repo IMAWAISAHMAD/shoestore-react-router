@@ -1,12 +1,12 @@
 import React,{useContext} from 'react';
 import {StoreContext} from '../../contexts/StoreContext';
-import {useParams}  from 'react-router-dom';
+import {useParams,useNavigate}  from 'react-router-dom';
 
 export default function ProductDetail() {
     const {slug} = useParams();
     const products = useContext(StoreContext);
-    console.log(products);
     const product = products.find(product=>product.slug===slug);
+    const navigate = useNavigate();
     
     return (
         <div>
@@ -17,6 +17,7 @@ export default function ProductDetail() {
                 <img style={{width:'500px',height:'450px'}} src={product.image} alt={product.title}/>
             </div>
             <h2>{`Price: ${product.price}$`}</h2>
+            <button onClick={()=>navigate('/')}>Go Back</button>
         </div>       
     )
 }

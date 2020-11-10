@@ -18,9 +18,9 @@ function App() {
          <Link to='/cart'>Cart</Link>
        </nav>
        <Routes>
-         <Route path='/' element={<Home/>}/>
+         <Route path='/' element={<ProductList/>}/>
          <Route path='cart' element={<Cart/>}/>
-         <Routes path='products' element={<Products/>}>
+         <Routes path='products/*' element={<Products/>}>
             <Route path='/' element={<ProductList/>}/>
             <Route path=':slug' element={<ProductDetail/>}/>
          </Routes>
