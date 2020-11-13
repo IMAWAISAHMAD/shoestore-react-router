@@ -22,11 +22,14 @@ export const CartProvider = ({children}) =>{
     const removeFromCart = (id) =>{
         dispatch({type:'REMOVE_FROM_CART',payload:id});
     };
+    const resetCart = () =>{
+        dispatch({type:'RESET_CART'});
+    };
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
     const itemsInCart = state.cart.map(product=>product.quantity).reduce(reducer,0);
     const totalAmount = state.cart.map(product=>product.quantity*product.price).reduce(reducer,0);
     return(
-        <CartContext.Provider value={{cart:state.cart,addToCart,increaseQty,decreaseQty,removeFromCart,itemsInCart,totalAmount}}>
+        <CartContext.Provider value={{cart:state.cart,addToCart,increaseQty,decreaseQty,removeFromCart,resetCart,itemsInCart,totalAmount}}>
             {children}
         </CartContext.Provider>
     )

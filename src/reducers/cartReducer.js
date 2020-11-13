@@ -7,6 +7,8 @@ const cartReducer = (state,action) =>{
             state.cart.push({
                 ...action.payload
             })
+        }else{
+            alert('Item Already Added To Cart')
         }
         return {
             cart:[...state.cart]
@@ -34,6 +36,10 @@ const cartReducer = (state,action) =>{
             ...state,
             cart:[...result]
         } 
+        case 'RESET_CART':
+         return{
+             cart:[]
+         } 
 
         default:
            return state;    

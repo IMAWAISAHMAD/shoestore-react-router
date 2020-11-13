@@ -1,19 +1,36 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-export default function Product({product,addToCart}) {
+import {Card,CardContent,CardActions,Typography,Link as MuiLink,Button} from '@material-ui/core';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
-    return (
-        <div style={{margin:'50px'}}>
-            Product Component
-        <Link to={`/products/${product.slug}`}>
-        <h3>{product.title}</h3>
-        <h3>{product.slug}</h3>
-        <div>
-            <img style={{width:'500px',height:'450px'}} src={product.image} alt={product.title}/>
-        </div>
-        <h2>{`Price: ${product.price}$`}</h2>
-        </Link>
-        <button onClick={()=>addToCart(product)}>Add To Cart</button>
-        </div> 
-    )
+export default function Product({product,addToCart}) {
+    const {image,title,price} = product;
+return (
+    
+<Card>
+    <CardContent>
+        <MuiLink  component={Link} to={`/products/${product.slug}`}>
+        <img  style={{width:'300px',height:'250px'}}  src={image} alt={product.title}/>
+        </MuiLink>
+        <Typography variant='body1'>
+            {title}
+        </Typography>
+        <Typography variant='body2'>
+            {`${price}$`}
+        </Typography>
+        <CardActions>
+         <Button
+          color='primary'
+          variant='outlined'
+          startIcon={<AddShoppingCartIcon/>}
+          fullWidth
+          onClick={()=>addToCart(product)}
+         >
+             Add To Bag
+         </Button>
+         </CardActions>
+    </CardContent>
+</Card>
+    
+)
 }
