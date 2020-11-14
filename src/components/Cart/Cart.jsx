@@ -1,7 +1,9 @@
 import React,{useContext,useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {CartContext} from '../../contexts/CartContext';
-import {Grid,Card,CardContent,Typography,Button} from '@material-ui/core';
+import {Grid,Card,CardContent,Typography,Button,ButtonGroup} from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+
 export default function Cart() {
     const {cart,decreaseQty,increaseQty,removeFromCart} = useContext(CartContext);
     const [myCart,setMyCart] = useState([]);
@@ -80,7 +82,24 @@ export default function Cart() {
              </Typography>
             ) 
             }
-            {myCart.length?<Button variant='contained' onClick={()=>navigate('/checkout')}>Checkout</Button>:null }
+            {myCart.length?(
+                <ButtonGroup style={{marginTop:'50px'}}>
+                    <Button
+                    variant='contained' 
+                    onClick={()=>navigate('/checkout')}
+                    >
+                    Checkout
+                    </Button>
+                    <Button 
+                    startIcon={<ArrowBackIcon/>} 
+                    variant='contained' 
+                    fullWidth
+                    onClick={()=>navigate('/')}>
+                        Go Back
+                    </Button>
+                </ButtonGroup>
+            )
+            :null }
         </Grid>
         </div>
         

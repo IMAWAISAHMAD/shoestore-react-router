@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "react-slick";
  
 export default function SimpleSlider({sliderImages}) {
-  console.log(sliderImages);
   var settings = {
     dots: true,
     infinite: true,
@@ -16,7 +15,6 @@ export default function SimpleSlider({sliderImages}) {
     </div>
   ))
 
- console.log(productImages);
   return (
     <Slider {...settings}>
       {productImages}
