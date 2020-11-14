@@ -18,7 +18,7 @@ export default function ProductList() {
         <div className={classes.root}>
             <Grid container spacing={4}>
                 {products.map((product)=>(
-                    <Grid item  xs={12} sm={3} md={3} key={product.id}>
+                    <Grid item  xs={12} sm={4} md={3} key={product.id}>
                         <Product product={product} addToCart={addToCart}/>
                     </Grid>
                 ))}

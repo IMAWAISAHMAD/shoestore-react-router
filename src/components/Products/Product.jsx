@@ -10,7 +10,7 @@ return (
 <Card>
     <CardContent>
         <MuiLink  component={Link} to={`/products/${product.slug}`}>
-        <img  style={{width:'300px',height:'250px'}}  src={image} alt={product.title}/>
+        <img  style={{width:'100%'}}  src={image} alt={product.title}/>
         </MuiLink>
         <Typography variant='body1'>
             {title}

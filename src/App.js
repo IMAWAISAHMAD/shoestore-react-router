@@ -6,6 +6,7 @@ import {Products,ProductList,ProductDetail} from './components/Products';
 import Cart from './components/Cart/Cart';
 import Header from './components/Header/Header';
 import Checkout from './components/Checkout/Checkout'
+import NotFound from './components/NotFound/NotFound'
 
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
          <Route path='/' element={<ProductList/>}/>
          <Route path='cart' element={<Cart/>}/>
          <Route path='checkout' element={<Checkout/>}/>
-         <Route path='products/*' element={<Products/>}>
+         <Route path='products' element={<Products/>}>
             <Route path='/' element={<ProductList/>}/>
             <Route path=':slug' element={<ProductDetail/>}/>
          </Route>
-         
+         <Route path='*' element={<NotFound/>}/>
        </Routes>
      </Router>
      </CartProvider>

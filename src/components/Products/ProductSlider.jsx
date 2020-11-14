@@ -12,7 +12,7 @@ export default function SimpleSlider({sliderImages}) {
   };
   const productImages =  sliderImages.map((image,i)=>(
     <div key={i}>
-      <img src={image} style={{width:'100%',height:'100%'}} alt=''/>
+      <img src={image} style={{width:'100%'}} alt=''/>
     </div>
   ))
 

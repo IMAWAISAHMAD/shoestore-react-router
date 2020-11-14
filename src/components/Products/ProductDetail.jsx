@@ -16,49 +16,57 @@ export default function ProductDetail() {
     
     return (
         <div style={{marginTop:'80px'}}>
-         <Grid container justify='center'>
-             <Grid item xs={12} md={8}>
-                <ProductSlider sliderImages={product.sliderImages}/>
-             </Grid>
-             <Grid item xs={12} md={4}>
-                 <Card>
-                     <CardContent>
-                         <Typography variant='h5'>
-                             Product Details
-                         </Typography>
-                         <hr/>
-                         <Typography variant='h6' gutterBottom>
-                         {`Product Name: ${product.title}`}
-                         </Typography>
-                         <Typography variant='body1' gutterBottom color='textSecondary'>
-                         {`Slug: ${product.slug}`}
-                         </Typography>
-                         <Typography variant='h5' gutterBottom color='primary'>
-                         {`Price: ${product.price}$`}
-                         </Typography>  
-                     </CardContent>
-                     <CardActions>
-                        <Button
-                        startIcon={<AddShoppingCartIcon/>} 
-                        color='primary'
-                        variant='outlined'
-                        fullWidth
-                        onClick={()=>addToCart(product)}
-                        >
-                            Add To Bag
-                        </Button>
-                        <Button 
-                        startIcon={<ArrowBackIcon/>} 
-                        variant='outlined' 
-                        fullWidth
-                        onClick={()=>navigate('/')}>
-                            Go Back
-                        </Button>
-                     </CardActions>
-                 </Card>
-             </Grid>
-         </Grid>
-         </div> 
+        {product?(
+            <Grid container spacing={1} alignItems='center'>
+                <Grid item xs={12} md={8}>
+                   <ProductSlider sliderImages={product.sliderImages}/>
+                </Grid>
+                <Grid item xs={12} md={4}>
+                    <Card>
+                        <CardContent>
+                            <Typography variant='h5'>
+                                Product Details
+                            </Typography>
+                            <hr/>
+                            <Typography variant='h6' gutterBottom>
+                            {`Product Name: ${product.title}`}
+                            </Typography>
+                            <Typography variant='body1' gutterBottom color='textSecondary'>
+                            {`Slug: ${product.slug}`}
+                            </Typography>
+                            <Typography variant='h5' gutterBottom color='primary'>
+                            {`Price: ${product.price}$`}
+                            </Typography>  
+                        </CardContent>
+                        <CardActions>
+                           <Button
+                           startIcon={<AddShoppingCartIcon/>} 
+                           color='primary'
+                           variant='outlined'
+                           fullWidth
+                           onClick={()=>addToCart(product)}
+                           >
+                               Add To Bag
+                           </Button>
+                           <Button 
+                           startIcon={<ArrowBackIcon/>} 
+                           variant='outlined' 
+                           fullWidth
+                           onClick={()=>navigate('/')}>
+                               Go Back
+                           </Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
+            </Grid>
+           
+
+        ):
+        (
+            <h1>No Product Found</h1>
+        )}
+        </div>
+        
     )
 }
 

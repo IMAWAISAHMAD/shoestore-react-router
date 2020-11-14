@@ -1,7 +1,7 @@
 import React,{useContext,useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {CartContext} from '../../contexts/CartContext';
-import {Grid,Card,CardContent,CardActions,Typography,Button} from '@material-ui/core';
+import {Grid,Card,CardContent,Typography,Button} from '@material-ui/core';
 export default function Cart() {
     const {cart,decreaseQty,increaseQty,removeFromCart} = useContext(CartContext);
     const [myCart,setMyCart] = useState([]);
@@ -18,14 +18,14 @@ export default function Cart() {
             (myCart.map((product)=>(
                 <Grid container key={product.id} spacing={4}>
                 <Grid item md={2}></Grid>
-                    <Grid item md={2}>
+                    <Grid item sm={12} md={2}>
                         <Card>
                             <CardContent>
-                            <img style={{width:'200px',height:'150px'}} src={product.image} alt={product.title}/>
+                            <img style={{width:'100%'}} src={product.image} alt={product.title}/>
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid item  md={6}>
+                    <Grid item sm={12}  md={6}>
                     <Card>
                         <CardContent>
                             <Typography variant='h6'>
